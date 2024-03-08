@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Settings</key>
+    <dict>
+      <key>ColorSettings</key>
+      <dict>
+        <!-- <key>Example Subject</key>
+        <array>
+          <real>0.9327886</real>
+          <real>0.5448206</real>
+          <real>0.6688553</real>
+        </array> -->
+      </dict>
+      <key>NumberOfWeeks</key>
+      <integer>2</integer>
+      <key>SelectedWeek</key>
+      <integer>1</integer>
+      <key>SelectedWeekUpdateDate</key>
+      <date>2024-02-01T10:10:10Z</date>
+      <key>WeekendDaysAreActive</key>
+      <false/>
+    </dict>
+    <key>WeekEvents</key>
+    <array>
+      <!-- <dict>
+        <key>dayNum</key>
+        <integer>0</integer>
+        <key>time</key>
+        <integer>32100</integer>
+        <key>endTime</key>
+        <integer>35400</integer>
+        <key>title</key>
+        <string>Example Subject</string>
+        <key>info</key>
+        <string>Example Room Number</string>
+        <key>weekNum</key>
+        <integer>0</integer>
+      </dict> -->
+    </array>
+  </dict>
+</plist>

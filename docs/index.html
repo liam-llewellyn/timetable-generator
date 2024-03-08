@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Timetable Generator</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+</head>
+
+<body style="margin:40px; padding:40px">
+  <h1>Timetable Generator</h1>
+  <p>Converts the school's web timetable to a .timetable file for the <a href="https://classtimetable.app/">Class
+      Timetable App</a>.</p>
+
+  <form id="timetable-form" style="width:600px;">
+    <label for="input-field">Enter your school email:</label>
+    <input type="email" id="input-field" name="input-field" required />
+    <br>
+    <label for="password-field">Enter the password (it's the same for everyone):</label>
+    <input type="password" id="password-field" name="password-field" autocomplete="on" required />
+    <br>
+    <button type="submit">Download Timetable</button>
+    <br>
+    <p id="error-display"></p>
+  </form>
+
+  <h4>Why is there a password?</h4>
+  <p>Because I don't want everybody on the Internet to be able to download our timetables. That's also why the school
+    name isn't mentioned. Ask the person who gave you this link for the password. If you can't figure it out
+    <a href="mailto:trophy_cuckoo_0d@icloud.com">email me</a> using your school email.
+  </p>
+
+  <h4>Credits and Disclaimers</h4>
+  <p>This website is not affiliated with the school or Class Timetable.</p>
+  <p>I wrote a lot of the code with AI, so I'm sorry if it breaks.</p>
+  <p>The source code is hosted on <a href="https://github.com/tennour/timetable-generator">GitHub</a>.</p>
+  <p>If you have any problems <a href="mailto:trophy_cuckoo_0d@icloud.com">email me</a> using your school email.</p>
+
+  <script type="module" src="index.js"></script>
+</body>
+
+</html>
