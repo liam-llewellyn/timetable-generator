@@ -13,7 +13,8 @@ module.exports = async function generate(apiData) {
 
   apiData.forEach((item) => {
     // Calculate dayNum and weekNum based on DayNumber
-    let dayNum, weekNum;
+    let dayNum;
+    let weekNum;
     if (parseInt(item.DayNumber) <= 5) {
       dayNum = parseInt(item.DayNumber, 10) - 1;
       weekNum = 0;
@@ -34,12 +35,12 @@ module.exports = async function generate(apiData) {
 
     // Create a new period object
     const newPeriod = {
-      dayNum: dayNum,
+      dayNum,
       time: startTimeInSeconds,
       endTime: endTimeInSeconds,
       title: item.ClassCode,
       info: item.RoomCode || "DefaultRoom", // Use default room if RoomCode is not provided
-      weekNum: weekNum,
+      weekNum,
     };
 
     // Push the new period object to the WeekEvents array

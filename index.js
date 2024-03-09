@@ -25,8 +25,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/generateTimetable", async (req, res) => {
-  const userEmail = req.body.userEmail;
-  const userPassword = req.body.userPassword;
+  const { userEmail, userPassword } = req.body;
 
   if (userPassword === process.env.PASSWORD) {
     try {
