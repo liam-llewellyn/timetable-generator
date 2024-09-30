@@ -106,7 +106,7 @@ async function generate(apiData, plistData) {
     const plistObject = plist.parse(plistData);
     plistObject.WeekEvents = [];
 
-    const colorArray = [0.9327886, 0.5448206, 0.6688553];
+    const colorArray = [120 / 255, 120 / 255, 120 / 255];
 
     apiData.forEach((item) => {
       let dayNum;
@@ -131,13 +131,15 @@ async function generate(apiData, plistData) {
         dayNum,
         time: startTimeInSeconds,
         endTime: endTimeInSeconds,
-        title: item.ClassCode,
-        info: item.RoomCode || "DefaultRoom",
+        title: item.CourseName.substring(0, item.CourseName.lastIndexOf(" ")),
+        info: `${item.RoomCode || "DefaultRoom"}\n${item.ClassCode}`,
         weekNum,
       };
 
       plistObject.WeekEvents.push(newPeriod);
-      plistObject.Settings.ColorSettings[item.ClassCode] = colorArray;
+      plistObject.Settings.ColorSettings[
+        item.CourseName.substring(0, item.CourseName.lastIndexOf(" "))
+      ] = colorArray;
     });
 
     return plist.build(plistObject);

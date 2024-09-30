@@ -1,7 +1,7 @@
 # Timetable Generator
 
 Converts my school's web timetable API response to a `.timetable` file for the Class Timetable App. <br/>
-Currently live at https://github.com/liam-llewellyn/timetable-generator/ <br/>
+Currently live at https://liam-llewellyn.github.io/timetable-generator/ <br/>
 
 ### Credits and Disclaimers
 

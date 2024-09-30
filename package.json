@@ -1,7 +1,7 @@
 {
   "name": "timetable-generator",
   "version": "1.0.0",
-  "description": "Converts my school's web timetable API response to .timetable file for the Class Timetable App.\\ Currently live at https://github.com/liam-llewellyn/timetable-generator/ \\",
+  "description": "Converts my school's web timetable API response to .timetable file for the Class Timetable App.\\ Currently live at https://liam-llewellyn.github.io/timetable-generator/ \\",
   "scripts": {
     "build": "webpack"
   },
