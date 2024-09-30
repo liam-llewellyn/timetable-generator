@@ -14,8 +14,9 @@ document
 
     const token = await auth(userEmail, userPassword);
     const data = await makeRequest(userEmail, token);
-    const file = await generate(data);
-    await download(file, "auto-generated.timetable", "application/xml");
+    const file = await generateFile(data);
+    await downloadFile(file, "auto-generated.timetable");
+
     displayMessage(`Timetable successfully downloaded.`, false);
   });
 
@@ -39,17 +40,14 @@ async function auth(schoolEmail, schoolPassword) {
       }
     );
 
-    if (!response.ok) {
-      throw new Error("Authentication failed: " + response.statusText);
-    }
+    if (!response.ok) throw response.statusText;
     const data = await response.json();
     return data.token;
   } catch (error) {
     displayMessage(
-      `Error authenticating with the school's server. Check your email or password. \nResponse from server: ${error.message}`,
+      `Error authenticating with the school's server. Check your email or password.\nResponse from server: ${error.message}`,
       true
     );
-    throw error;
   }
 }
 
@@ -65,9 +63,7 @@ async function makeRequest(userEmail, token) {
         },
       }
     );
-    if (!response.ok) {
-      throw new Error("Error fetching timetable data: " + response.statusText);
-    }
+    if (!response.ok) throw response.statusText;
     const data = await response.json();
     return data;
   } catch (error) {
@@ -75,21 +71,11 @@ async function makeRequest(userEmail, token) {
       `Unable to get your timetable from the school's website. Please try again later. \nResponse from server: ${error.message}`,
       true
     );
-    throw error;
   }
 }
 
-async function generate(apiData) {
+async function generateFile(apiData) {
   try {
-    let plistString = `<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-  <dict>
-    <key>Settings</key>
-    <dict>
-      <key>ColorSettings</key>
-      <dict>`;
-
     const courses = [];
     const colours = [
       [188 / 255, 64 / 255, 58 / 255], // Red
@@ -112,6 +98,15 @@ async function generate(apiData) {
       [135 / 255, 206 / 255, 250 / 255], // Light Sky Blue
       [60 / 255, 179 / 255, 113 / 255], // Medium Sea Green
     ];
+
+    let plistString = `<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Settings</key>
+    <dict>
+      <key>ColorSettings</key>
+      <dict>`;
 
     apiData.forEach((item) => {
       const courseName = item.CourseName.substring(
@@ -188,14 +183,13 @@ async function generate(apiData) {
       `We got your timetable but couldn't generate the file. Please try again later. \nResponse from server: ${error.message}`,
       true
     );
-    throw error;
   }
 }
 
-async function download(content, fileName, contentType) {
+async function downloadFile(content, fileName) {
   try {
     const a = document.createElement("a");
-    const file = new Blob([content], { type: contentType });
+    const file = new Blob([content], { type: "application/xml" });
     a.href = URL.createObjectURL(file);
     a.download = fileName;
     a.click();
@@ -204,11 +198,15 @@ async function download(content, fileName, contentType) {
       `Your file is ready but couldn't be downloaded. Please try again later. \nResponse from server: ${error.message}`,
       true
     );
-    throw error;
   }
 }
 
 function displayMessage(message, isError) {
+  if (isError) {
+    console.error(message);
+  } else {
+    console.log(message);
+  }
   errorDisplay.innerHTML = message;
   errorDisplay.style.color = isError ? "red" : "gray";
 }
