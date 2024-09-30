@@ -34,18 +34,11 @@ document
       false
     );
 
-    try {
-      const token = await auth(userEmail, userPassword);
-      const data = await makeRequest(userEmail, token);
-      const file = await generate(data, plistScaffold);
-      await download(file, "auto-generated.timetable", "application/xml");
-      displayMessage(`Timetable successfully downloaded.`, false);
-    } catch (error) {
-      displayMessage(
-        `An unexpected error occurred. Please try again later. \nResponse: ${error.message}`,
-        true
-      );
-    }
+    const token = await auth(userEmail, userPassword);
+    const data = await makeRequest(userEmail, token);
+    const file = await generate(data, plistScaffold);
+    await download(file, "auto-generated.timetable", "application/xml");
+    displayMessage(`Timetable successfully downloaded.`, false);
   });
 
 async function auth(schoolEmail, schoolPassword) {

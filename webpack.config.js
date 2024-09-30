@@ -6,7 +6,16 @@ module.exports = {
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "dist"),
-    publicPath: "liam-llewellyn/timetable-generator",
   },
   mode: "development",
+  resolve: {
+    fallback: {
+      buffer: require.resolve("buffer"),
+    },
+  },
+  plugins: [
+    new webpack.ProvidePlugin({
+      Buffer: ["buffer", "Buffer"],
+    }),
+  ],
 };

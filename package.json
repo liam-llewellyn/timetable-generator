@@ -1,22 +1,22 @@
 {
   "name": "timetable-generator",
   "version": "1.0.0",
-  "description": "Converts my school's web timetable API response to .timetable file for the Class Timetable App.\\ Currently live at my https://tennour.github.io/timetable-generator/ \\",
-  "main": "index.js",
+  "description": "Converts my school's web timetable API response to .timetable file for the Class Timetable App.\\ Currently live at https://github.com/liam-llewellyn/timetable-generator/ \\",
   "scripts": {
-    "build": "webpack",
-    "start": "webpack serve",
-    "deploy": "gh-pages -d dist"
+    "build": "webpack"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "timetable",
+    "class timetable"
+  ],
+  "author": "Liam Llewellyn",
   "license": "ISC",
   "devDependencies": {
-    "gh-pages": "^6.1.1",
     "webpack": "^5.95.0",
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
+    "buffer": "^6.0.3",
     "plist": "^3.1.0"
   }
 }
