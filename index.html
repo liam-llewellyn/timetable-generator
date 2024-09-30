@@ -1,72 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Timetable Generator</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
-    />
-  </head>
 
-  <body style="padding: 40px; max-width: 750px; width: 100%; margin: auto">
-    <h1><code>.timetable</code> Generator for NBSC Manly Campus</h1>
-    <p>
-      Converts the school's web timetable to a <code>.timetable</code> file for
-      the <a href="https://classtimetable.app/">Class Timetable App</a>.
-    </p>
+<head>
+  <title>Timetable Generator</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+</head>
 
-    <p style="color: red">
-      <strong>WARNING:</strong> Putting your school password into random
-      websites is a <strong>very</strong> dangerous thing to do. I know
-      <strong>nothing</strong> about password security, and AI was used in the
-      creation of this website. The source code is on
-      <a
-        style="color: red"
-        href="https://github.com/liam-llewellyn/timetable-generator"
-        >GitHub</a
-      >, but <strong>I</strong> wouldn't trust this website. However, I promise
-      this code will only use your password to log into the school's website,
-      and will not be stored. There is no central server, all code runs on your
-      machine.
-    </p>
+<body style="padding: 40px; max-width: 750px; width: 100%; margin: auto">
+  <h1><code>.timetable</code> Generator for NBSC Manly Campus</h1>
+  <p>
+    Converts the school's web timetable to a <code>.timetable</code> file for
+    the <a href="https://classtimetable.app/">Class Timetable App</a>.
+  </p>
 
-    <form id="timetable-form">
-      <label for="input-field">Enter your school email:</label>
-      <input type="email" id="input-field" name="input-field" required />
-      <br />
+  <p style="color: red">
+    <strong>WARNING:</strong> Putting your school password into random
+    websites is a <strong>very</strong> dangerous thing to do. I know
+    <strong>nothing</strong> about password security, and AI was used in the
+    creation of this website. The source code is on
+    <a style="color: red" href="https://github.com/liam-llewellyn/timetable-generator">GitHub</a>, but
+    <strong>I</strong> wouldn't trust this website. However, I promise
+    this code will only use your password to log into the school's website,
+    and will not be stored. There is no central server, all code runs on your
+    machine.
+  </p>
 
-      <label for="password-field">Enter your school password:</label>
-      <input
-        type="password"
-        id="password-field"
-        name="password-field"
-        required
-      />
-      <br />
+  <form id="timetable-form">
+    <label for="input-field">Enter your school email:</label>
+    <input type="email" id="input-field" name="input-field" required />
+    <br />
 
-      <details>
-        <summary>Advanced</summary>
-        <label for="query-field"
-          >Enter the email of the person's timetable you wish to find (leave
-          blank if it is your email):</label
-        >
-        <input type="email" id="query-field" name="query-field" />
-      </details>
+    <label for="password-field">Enter your school password:</label>
+    <input type="password" id="password-field" name="password-field" required />
+    <br />
 
-      <button type="submit" id="submit-button">Download Timetable</button>
-      <br />
-      <p id="error-display"></p>
-    </form>
+    <details>
+      <summary>Advanced</summary>
+      <label for="query-field">Enter the email of the person's timetable you wish to find (leave
+        blank if it is your email):</label>
+      <input type="email" id="query-field" name="query-field" />
+    </details>
 
-    <h2>Credits and Disclaimers</h4>
+    <button type="submit" id="submit-button">Download Timetable</button>
+    <br />
+    <p id="error-display"></p>
+  </form>
+
+  <h2>Instructions</h2>
+  <ul>
+    <li>Download the <a href="https://classtimetable.app/">Class Timetable App</a>.</li>
+    <li>Download your timetable with the form above.</li>
+    <li>Within Class Timetable, click Settings, then Timetable Tools, then Import Timetable and choose the file
+      downloaded before.</li>
+    <li>Change the colours to your liking.</li>
+  </ul>
+
+  <h2>Credits and Disclaimers</h4>
     <p>
       This website is not affiliated with the school or Class Timetable. The
       source code is hosted on
-      <a href="https://github.com/liam-llewellyn/timetable-generator">GitHub</a
-      >. If you have any problems
+      <a href="https://github.com/liam-llewellyn/timetable-generator">GitHub</a>. If you have any problems
       <a href="mailto:trophy_cuckoo_0d@icloud.com">email me</a> using your
       school email.
     </p>
     <script src="index.js"></script>
-  </body>
+</body>
+
 </html>
